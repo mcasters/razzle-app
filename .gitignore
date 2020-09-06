@@ -5,6 +5,7 @@ npm-debug.log*
 .editorconfig
 .env.*.local
 
+.idea
 coverage
 node_modules
 notes
