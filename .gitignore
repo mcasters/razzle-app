@@ -1,0 +1,13 @@
+logs
+*.log
+npm-debug.log*
+.DS_Store
+.editorconfig
+.env.*.local
+
+coverage
+node_modules
+notes
+build
+public/static
+
