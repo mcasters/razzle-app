@@ -3,6 +3,9 @@ import logo from '../react.svg';
 import '../Home.css';
 import {Link} from 'react-router-dom';
 import {mySql} from "../data/mysql";
+import CustomDate from "../data/model/CustomDate";
+import Painting from "../data/model/Painting";
+import ITEM_CONST from "../constants/itemConstant";
 
 const Home = ({itemList}) => {
 
@@ -18,10 +21,14 @@ const Home = ({itemList}) => {
             </p>
             <Link to="/about">About -></Link>
             {itemList.map((row) => {
+                const date = new CustomDate();
+                const item = new Painting(row);
+                console.log(item.getSMPath());
                 return (
                     <>
                         <p>{row.title}</p>
-                        <img src={`/images/paintings/${row.title}.jpg`}/>
+                        <p>{date.getLongStringDate()}</p>
+                        <img src={item.getSMPath()}/>
                     </>);
             })}
         </div>
