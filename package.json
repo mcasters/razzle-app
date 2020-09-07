@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@jaredpalmer/after": "latest",
-    "@loadable/component": "^5.13.1",
     "after": "0.8.2",
     "express": "^4.17.1",
     "mysql2": "^2.1.0",

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import loadable from '@loadable/component';
 
 import s from './ItemComponent.module.css';
 import Images from './Images';
@@ -9,7 +8,7 @@ import CustomDate from '../../data/model/CustomDate';
 import GLOBAL_CONST from '../../constants/globalConstant';
 
 const ItemComponent = ({ item }) => {
-    const customDate = new CustomDate(item.date).getNumberDate();
+    const date = new CustomDate(item.date);
     return (
         <article className={s.itemContainer}>
             <h2 className={s.itemTitle}>
@@ -17,8 +16,8 @@ const ItemComponent = ({ item }) => {
             </h2>
             <Images srcList={item.getSMPath()} alt={item.getAlt()} />
             <figcaption>
-                <time dateTime={item.get('date')} className={s.noWrap}>
-                    {customDate}
+                <time dateTime={date.getTime()} className={s.noWrap}>
+                    {date.getNumberDate()}
                 </time>
                 <span className={s.spacer}> | </span>
                 <p className={s.noWrap}>{item.get('technique')}</p>
@@ -33,7 +32,7 @@ const ItemComponent = ({ item }) => {
     );
 };
 
-ItemComponent.PropTypes = {
+ItemComponent.propTypes = {
     item: PropTypes.object.isRequired,
 };
 export default ItemComponent;

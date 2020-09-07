@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 import logo from '../react.svg';
 import './Home.css';
 import { mySql } from '../data/mysql';
-import ITEM_CONST from '../constants/itemConstant';
-import Item from '../data/model/Item';
-import ItemComponent from './item/ItemComponent';
 
-const Home = ({ itemList }) => {
+const Home = () => {
     return (
         <div className="Home">
             <div className="Home-header">
@@ -20,10 +17,6 @@ const Home = ({ itemList }) => {
                 <code>src/About.js</code>and save to reload.
             </p>
             <Link to="/about">About -></Link>
-            {itemList.map((row) => {
-                const item = new Item(row, ITEM_CONST.PAINTING.KEY);
-                return <ItemComponent item={item} />;
-            })}
         </div>
     );
 };
