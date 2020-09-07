@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from '../react.svg';
-import '../Home.css';
+import './Home.css';
 import { Link } from 'react-router-dom';
 import { mySql } from '../data/mysql';
 import CustomDate from '../data/model/CustomDate';
 import ITEM_CONST from '../constants/itemConstant';
 import Item from '../data/model/Item';
+import ItemComponent from './item/ItemComponent';
 
 const Home = ({ itemList }) => {
     return (
@@ -20,19 +21,8 @@ const Home = ({ itemList }) => {
             </p>
             <Link to="/about">About -></Link>
             {itemList.map((row) => {
-                const date = new CustomDate();
                 const item = new Item(row, ITEM_CONST.PAINTING.KEY);
-                console.log(item.getSMPath());
-                const srcList = item.getSMPath();
-                return (
-                    <>
-                        <p>{row.title}</p>
-                        <p>{date.getLongStringDate()}</p>
-                        {srcList.map((src) => (
-                            <img src={src} />
-                        ))}
-                    </>
-                );
+                return <ItemComponent item={item} />;
             })}
         </div>
     );

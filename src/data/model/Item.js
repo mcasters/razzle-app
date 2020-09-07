@@ -57,8 +57,8 @@ class Item {
         );
     }
 
-    getItemParticular() {
-        throw new Error('You must implement this function');
+    getAlt() {
+        return this.constDatas.IMAGE.ALT_IMAGE;
     }
 }
 
