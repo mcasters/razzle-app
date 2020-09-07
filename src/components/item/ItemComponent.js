@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
+import loadable from '@loadable/component';
 
 import s from './ItemComponent.module.css';
 import Images from './Images';

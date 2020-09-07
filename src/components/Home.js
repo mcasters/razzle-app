@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from '../react.svg';
 import './Home.css';
-import { Link } from 'react-router-dom';
 import { mySql } from '../data/mysql';
-import CustomDate from '../data/model/CustomDate';
 import ITEM_CONST from '../constants/itemConstant';
 import Item from '../data/model/Item';
 import ItemComponent from './item/ItemComponent';
@@ -36,8 +36,13 @@ Home.getInitialProps = async ({
     location,
     ...ctx
 }) => {
-    const tab = await mySql();
-    return { itemList: tab[0] };
+    try {
+        const tab = await mySql();
+        return { itemList: tab[0] };
+    } catch (error) {
+        if (error.response.status === 404) return { statusCode: 404 };
+        return { error };
+    }
 };
 
 export default Home;

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { asyncComponent } from '@jaredpalmer/after';
+import NotFound from './components/NotFound';
 
 export default [
     {
@@ -18,5 +19,8 @@ export default [
             loader: () => import('./components/About'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
+    },
+    {
+        component: NotFound,
     },
 ];
