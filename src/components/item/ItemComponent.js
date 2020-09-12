@@ -16,7 +16,7 @@ const ItemComponent = ({ item }) => {
             </h2>
             <Images srcList={item.getSMPath()} alt={item.getAlt()} />
             <figcaption>
-                <time dateTime={date.getTime()} className={s.noWrap}>
+                <time dateTime={date.getNumberDate()} className={s.noWrap}>
                     {date.getNumberDate()}
                 </time>
                 <span className={s.spacer}> | </span>

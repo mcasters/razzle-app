@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import ErrorBoundary from '../ErrorBoundary';
 
 function Layout({ children, title = 'This is the default title' }) {
     return (
-        <div>
+        <ErrorBoundary>
             <Helmet>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
@@ -27,7 +28,7 @@ function Layout({ children, title = 'This is the default title' }) {
             {children}
 
             <footer>{'I`m here to stay'}</footer>
-        </div>
+        </ErrorBoundary>
     );
 }
 

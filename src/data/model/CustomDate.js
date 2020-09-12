@@ -2,9 +2,6 @@ class CustomDate extends Date {
     constructor() {
         super();
     }
-    getTime() {
-        super.getTime();
-    }
 
     getNumberDate() {
         var mois = [

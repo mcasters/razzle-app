@@ -3,7 +3,7 @@ logs
 npm-debug.log*
 .DS_Store
 .editorconfig
-.env.*.local
+.env.local
 
 .idea
 coverage
