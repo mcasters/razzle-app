@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import fetch from 'isomorphic-unfetch';
 
-import { mySql } from '../data/mysql';
 import ITEM_CONST from '../constants/itemConstant';
 import Item from '../data/model/Item';
 import ItemComponent from './item/ItemComponent';
+import { SCULPTURE_URL } from '../data/api/urls';
 
-const Sculptures = ({ itemList }) => {
+const Sculptures = ({ list }) => {
     return (
-        <div>
-            {itemList.map((row) => {
-                const item = new Item(row, ITEM_CONST.PAINTING.KEY);
+        <>
+            {list.map((row) => {
+                const item = new Item(row, ITEM_CONST.SCULPTURE.KEY);
                 return <ItemComponent key={row.id} item={item} />;
             })}
-        </div>
+        </>
     );
 };
 
 Sculptures.getInitialProps = async () => {
     try {
-        const tab = await mySql();
-        return { itemList: tab[0] };
+        const res = await fetch(SCULPTURE_URL);
+        const list = await res.json();
+        return { list };
     } catch (error) {
         if (error.response.status === 404) return { statusCode: 404 };
         return { error };
@@ -28,7 +30,7 @@ Sculptures.getInitialProps = async () => {
 };
 
 Sculptures.propTypes = {
-    itemList: PropTypes.array,
+    list: PropTypes.array,
 };
 
 export default Sculptures;

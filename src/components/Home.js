@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 import logo from '../react.svg';
 import './Home.css';
-import { mySql } from '../data/mysql';
-
 const Home = () => {
     return (
         <div className="Home">
@@ -29,13 +27,11 @@ Home.getInitialProps = async ({
     location,
     ...ctx
 }) => {
-    try {
-        const tab = await mySql();
-        return { itemList: tab[0] };
-    } catch (error) {
-        if (error.response.status === 404) return { statusCode: 404 };
-        return { error };
-    }
+    // console.log(req.url);
+    //console.log(match);
+    // console.log(history);
+    // console.log(location);
+    console.log(ctx);
 };
 
 export default Home;
