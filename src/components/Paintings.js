@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import ITEM_CONST from '../constants/itemConstant';
 import Item from '../data/model/Item';

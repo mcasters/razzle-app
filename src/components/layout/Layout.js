@@ -18,7 +18,7 @@ function Layout({ children, title = 'This is the default title' }) {
             <header>
                 <nav>
                     <Link to="/">Home</Link>{' '}
-                    <Link to="/about">Présentation</Link>{' '}
+                    <Link to="/presentation">Présentation</Link>{' '}
                     <Link to="/peintures?part=0&year=2017">Peintures</Link>{' '}
                     <Link to="/sculptures">Sculptures</Link>{' '}
                     <Link to="/dessins">Dessins</Link>{' '}
