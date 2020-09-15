@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {
-    AfterRoot,
     AfterData,
+    AfterRoot,
     AfterScripts,
     AfterStyles,
 } from '@jaredpalmer/after';

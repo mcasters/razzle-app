@@ -8,7 +8,7 @@ import CustomDate from '../../data/model/CustomDate';
 import GLOBAL_CONST from '../../constants/globalConstant';
 
 const ItemComponent = ({ item }) => {
-    const date = new CustomDate(item.date);
+    const date = new CustomDate(item.get('date'));
     return (
         <article className={s.itemContainer}>
             <h2 className={s.itemTitle}>

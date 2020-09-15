@@ -1,6 +1,6 @@
 class CustomDate extends Date {
-    constructor() {
-        super();
+    constructor(date) {
+        super(Date.parse(date));
     }
 
     getNumberDate() {

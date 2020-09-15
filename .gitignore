@@ -1,14 +1,14 @@
 logs
-*.log
-npm-debug.log*
-.DS_Store
-.editorconfig
-.env.local
-
 .idea
 coverage
 node_modules
 notes
 build
-public/static
+
+*.log
+npm-debug.log*
+.DS_Store
+.editorconfig
+.env.local
+package-lock.json
 

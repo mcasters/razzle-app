@@ -19,7 +19,7 @@ function Layout({ children, title = 'This is the default title' }) {
                 <nav>
                     <Link to="/">Home</Link>{' '}
                     <Link to="/about">Présentation</Link>{' '}
-                    <Link to="/peintures">Peintures</Link>{' '}
+                    <Link to="/peintures?part=0&year=2017">Peintures</Link>{' '}
                     <Link to="/sculptures">Sculptures</Link>{' '}
                     <Link to="/dessins">Dessins</Link>{' '}
                 </nav>

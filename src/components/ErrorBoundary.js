@@ -5,7 +5,7 @@ const ErrorBoundary = ({ children }) => {
     const [hasError, setHasError] = useState(false);
     const [errorInfo, setErrorInfo] = useState('');
 
-    React.getDerivedStateFromError = (error) => {
+    React.getDerivedStateFromError = () => {
         setHasError(true);
     };
 
