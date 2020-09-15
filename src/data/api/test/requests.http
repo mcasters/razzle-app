@@ -1,0 +1,30 @@
+### GET request all paintings
+GET http://{{host}}:{{port}}/paintings
+Accept: application/json
+
+### GET request paintings by part
+GET http://{{host}}:{{port}}/paintings?part=1&year=2018
+Accept: application/json
+
+### GET request all drawings
+GET http://{{host}}:{{port}}/drawings
+Accept: application/json
+
+### GET request all sculptures
+GET http://{{host}}:{{port}}/sculptures
+Accept: application/json
+
+### GET request all contents
+GET http://{{host}}:{{port}}/contents
+Accept: application/json
+
+### GET request all users
+GET http://{{host}}:{{port}}/users
+Accept: application/json
+
+### GET request one sculpture
+GET http://{{host}}:{{port}}/sculptures/1
+Accept: application/json
+
+
+###
