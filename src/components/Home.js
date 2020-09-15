@@ -1,37 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import fetch from 'isomorphic-unfetch';
+import PropTypes from 'prop-types';
 
 import logo from '../react.svg';
 import './Home.css';
-const Home = () => {
+import { CONTENT_URL } from '../data/api/urls';
+import CONTENT from '../constants/content';
+import About from './About';
+import { TITLE } from '../constants/meta';
+
+const Home = ({ content }) => {
     return (
         <div className="Home">
             <div className="Home-header">
                 <img src={logo} className="Home-logo" alt="logo" />
-                <h2>Welcome to After.js</h2>
+                <h2>{TITLE.HOME}</h2>
             </div>
-            <p className="Home-intro">
-                To get started, edit <code>src/Home.js</code> or{' '}
-                <code>src/About.js</code>and save to reload.
-            </p>
-            <Link to="/about">About -></Link>
+            <p>{content}</p>
         </div>
     );
 };
 
-Home.getInitialProps = async ({
-    req,
-    res,
-    match,
-    history,
-    location,
-    ...ctx
-}) => {
-    // console.log(req.url);
-    //console.log(match);
-    // console.log(history);
-    // console.log(location);
-    console.log(ctx);
+Home.getInitialProps = async () => {
+    try {
+        const res = await fetch(
+            `${CONTENT_URL}?keycontent=${CONTENT.KEY.HOME3}`
+        );
+        const json = await res.json();
+        return { content: json.text };
+    } catch (error) {
+        if (error.response.status === 404) return { statusCode: 404 };
+        return { error };
+    }
+};
+
+About.propTypes = {
+    content: PropTypes.string,
 };
 
 export default Home;

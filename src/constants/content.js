@@ -5,7 +5,7 @@ const CONTENT = {
         HOME1: 'Home1',
         HOME2: 'Home2',
         HOME3: 'Home3',
-        PRESENTATION: 'Présentation',
+        PRESENTATION: 'presentation',
         CONTACT_ADDRESS: 'Adresse',
         CONTACT_PHONE: 'Téléphone',
         CONTACT_EMAIL: 'Email',
