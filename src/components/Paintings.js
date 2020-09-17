@@ -8,14 +8,24 @@ import Item from '../data/model/Item';
 import ItemComponent from './item/ItemComponent';
 import { PAINTING_URL } from '../data/api/urls';
 import useQuery from './hooks/useQuery';
+import useSelectedTab from './hooks/useSelectedTab';
+import s from './paintings.css';
 
-const Paintings = ({ list }) => {
+const paintingIndexTab = [
+    '?part=0&year=2017',
+    '?part=1&year=2018',
+    '?part=2&year=2018',
+    '?part=0&year=2019',
+];
+
+const Paintings = ({ list, location }) => {
     let query = useQuery();
+    let tab = useSelectedTab(paintingIndexTab.indexOf(location.search));
 
     return (
         <>
             <ul>
-                <li>
+                <li className={`${s.tab} button`}>
                     <Link to={'/peintures?part=0&year=2017'}>2017</Link>
                 </li>
                 <li>
@@ -37,16 +47,12 @@ const Paintings = ({ list }) => {
     );
 };
 
-Paintings.getInitialProps = async ({ history }) => {
-    const apiQuery =
-        history.location.pathname === '/peintures'
-            ? history.location.search
-            : `?part=O&year=2017`;
-
+Paintings.getInitialProps = async ({ location }) => {
+    const apiQuery = location.search || '?part=0&year=2017';
     try {
         const res = await fetch(`${PAINTING_URL}${apiQuery}`);
         const list = await res.json();
-        return { list, history };
+        return { list, location };
     } catch (error) {
         if (error.response.status === 404) return { statusCode: 404 };
         return { error };
@@ -54,7 +60,8 @@ Paintings.getInitialProps = async ({ history }) => {
 };
 
 Paintings.propTypes = {
-    list: PropTypes.array,
+    list: PropTypes.object,
+    location: PropTypes.object,
 };
 
 export default Paintings;

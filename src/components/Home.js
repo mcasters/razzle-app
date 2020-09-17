@@ -6,7 +6,6 @@ import logo from '../react.svg';
 import './Home.css';
 import { CONTENT_URL } from '../data/api/urls';
 import CONTENT from '../constants/content';
-import About from './About';
 import { TITLE } from '../constants/meta';
 
 const Home = ({ content }) => {
@@ -34,7 +33,7 @@ Home.getInitialProps = async () => {
     }
 };
 
-About.propTypes = {
+Home.propTypes = {
     content: PropTypes.string,
 };
 
