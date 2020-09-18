@@ -1,11 +1,12 @@
 .tablist {
     text-align: center;
+    border-bottom: 1px solid var(--color-light);
 }
 
 .tab {
     display: inline-block;
     padding: 1em 1.8em;
-    background-color: darkred;
+    background-color: var(--color-xlight);
 }
 
 .tab a {
@@ -14,10 +15,10 @@
 }
 
 .tab a:hover {
-    color: darkgray;
+    color: var(--color-dark);
 }
 
 .selected {
-    color: darkgray;
-    background-color: azure;
+    color: var(--color-dark);
+    background-color: var(--color-light);
 }
