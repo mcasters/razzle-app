@@ -1,0 +1,23 @@
+.tablist {
+    text-align: center;
+}
+
+.tab {
+    display: inline-block;
+    padding: 1em 1.8em;
+    background-color: darkred;
+}
+
+.tab a {
+    color: gray;
+    text-decoration: none;
+}
+
+.tab a:hover {
+    color: darkgray;
+}
+
+.selected {
+    color: darkgray;
+    background-color: azure;
+}

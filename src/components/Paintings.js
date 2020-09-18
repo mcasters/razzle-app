@@ -1,34 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
-
-import ITEM_CONST from '../constants/itemConstant';
-import Item from '../data/model/Item';
-import ItemComponent from './item/ItemComponent';
 import { PAINTING_URL } from '../data/api/urls';
 import useStorePaintingQuery from './hooks/useStorePaintingQuery';
-import ItemTab from './ItemTab';
-
-const paintingQueries = [
-    '?part=0&year=2017',
-    '?part=1&year=2018',
-    '?part=2&year=2018',
-    '?part=0&year=2019',
-];
+import TabComponent from './tabComponent/TabComponent';
 
 const Paintings = ({ list, query }) => {
     useStorePaintingQuery(query);
 
-    return (
-        <>
-            <ItemTab selectedQuery={query} />
-            <h1>{query.split('=')[2]}</h1>
-            {list.map((row) => {
-                const item = new Item(row, ITEM_CONST.PAINTING.KEY);
-                return <ItemComponent key={row.id} item={item} />;
-            })}
-        </>
-    );
+    return <TabComponent list={list} query={query} />;
 };
 
 Paintings.getInitialProps = async ({ req, location }) => {
