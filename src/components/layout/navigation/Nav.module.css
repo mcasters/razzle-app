@@ -1,0 +1,35 @@
+.nav {
+    padding: 1em;
+}
+
+.nav a {
+    padding: 0 1em;
+    font-size: var(--font-size-current-plus-plus);
+    transition: all 1.2s ease;
+    font-variant: small-caps;
+}
+
+.nav a:hover,
+.nav a:active,
+.active {
+    border-left: 1px solid;
+    letter-spacing: 0.6em;
+    transform: scale(1.2, 0.9);
+    transform-origin: left;
+    transition: all 1.2s ease;
+}
+
+.active:hover {
+    transform: scale(1.15);
+}
+
+.logo {
+    width: 28px;
+    transition: all 1.2s ease;
+}
+
+@media (--lg) {
+    .logo {
+        width: 35px;
+    }
+}

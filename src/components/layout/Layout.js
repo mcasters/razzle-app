@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+
 import ErrorBoundary from '../ErrorBoundary';
+import s from './Layout.module.css';
+import Nav from './navigation/Nav';
 
 function Layout({ children, title = 'This is the default title' }) {
     return (
@@ -15,18 +17,10 @@ function Layout({ children, title = 'This is the default title' }) {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Helmet>
-            <header>
-                <nav>
-                    <Link to="/">Home</Link>{' '}
-                    <Link to="/presentation">Présentation</Link>{' '}
-                    <Link to="/peintures">Peintures</Link>{' '}
-                    <Link to="/sculptures">Sculptures</Link>{' '}
-                    <Link to="/dessins">Dessins</Link>{' '}
-                    <Link to="/contact">Contact</Link>
-                </nav>
+            <header className={s.header}>
+                <Nav />
             </header>
-
-            {children}
+            <div className={s.content}>{children}</div>
 
             <footer>{'I`m here to stay'}</footer>
         </ErrorBoundary>
