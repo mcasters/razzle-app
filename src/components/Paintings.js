@@ -8,28 +8,37 @@ import Item from '../data/model/Item';
 import ItemComponent from './item/ItemComponent';
 import { PAINTING_URL } from '../data/api/urls';
 import useQuery from './hooks/useQuery';
-import usePaintingQuery from './hooks/usePaintingQuery';
+import useStorePaintingQuery from './hooks/useStorePaintingQuery';
 import s from './paintings.css';
+
+const paintingQueries = [
+    '?part=0&year=2017',
+    '?part=1&year=2018',
+    '?part=2&year=2018',
+    '?part=0&year=2019',
+];
 
 const Paintings = ({ list, location }) => {
     let query = useQuery();
-    let tab = usePaintingQuery(location?.search);
+    useStorePaintingQuery(location?.search);
 
     return (
         <>
             <ul>
-                <li className={`${s.tab} button`}>
-                    <Link to={'/peintures?part=0&year=2017'}>2017</Link>
-                </li>
-                <li>
-                    <Link to={'/peintures?part=1&year=2018'}>2018a</Link>
-                </li>
-                <li>
-                    <Link to={'/peintures?part=2&year=2018'}>2018b</Link>
-                </li>
-                <li>
-                    <Link to={'/peintures?part=0&year=2019'}>2019</Link>
-                </li>
+                {paintingQueries.map((q) => {
+                    const url = `/peintures${q}`;
+                    const isSelected = location?.search === q;
+                    return (
+                        <li
+                            key={q}
+                            className={`${s.tab} ${
+                                isSelected ? s.selected : ''
+                            }`}
+                        >
+                            <Link to={url}>{query.get('year')}</Link>
+                        </li>
+                    );
+                })}
             </ul>
             <h1>{query.get('year')}</h1>
             {list.map((row) => {

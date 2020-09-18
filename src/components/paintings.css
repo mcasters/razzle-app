@@ -1,3 +1,7 @@
 .tab {
     background-color: darkred;
 }
+
+.selected {
+    background-color: azure;
+}
