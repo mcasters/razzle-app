@@ -10,7 +10,7 @@ const TabContent = ({ list, query }) => {
 
     return (
         <>
-            <h1>{titleYear}</h1>
+            <h1 className="hidden">{titleYear}</h1>
             {list.map((row) => {
                 const item = new Item(row, ITEM_CONST.PAINTING.KEY);
                 return <ItemComponent key={row.id} item={item} />;

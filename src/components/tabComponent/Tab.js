@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import ITEM_CONST from '../../constants/itemConstant';
 import s from './Tab.module.css';
-import { Link } from 'react-router-dom';
 
 const Tab = ({ selectedQuery }) => {
     return (
@@ -17,7 +17,9 @@ const Tab = ({ selectedQuery }) => {
                         key={year}
                         className={`${s.tab} ${isSelected ? s.selected : ''}`}
                     >
-                        <Link to={url}>{year}</Link>
+                        <Link to={url} classname={s.tablink}>
+                            {year}
+                        </Link>
                     </li>
                 );
             })}
