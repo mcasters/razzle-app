@@ -2,10 +2,7 @@ import { useEffect } from 'react';
 
 function useStorePaintingQuery(query) {
     useEffect(() => {
-        if (
-            typeof window !== 'undefined' ||
-            localStorage.getItem('paintingQuery') === null
-        )
+        if (typeof window !== 'undefined')
             localStorage.setItem('paintingQuery', query);
     }, [query]);
 }

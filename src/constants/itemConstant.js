@@ -9,9 +9,13 @@ const ITEM_CONST = {
             ALT_IMAGE: 'Peinture de Marion Casters',
         },
         TITLE: 'Peintures',
-        YEAR2017: 2017,
-        YEAR2018: 2018,
-        YEAR2019: 2019,
+        YEARS: ['2017', '2018a', '2018b', '2019'],
+        QUERIES: [
+            '?part=0&year=2017',
+            '?part=1&year=2018',
+            '?part=2&year=2018',
+            '?part=0&year=2019',
+        ],
     },
 
     DRAWING: {

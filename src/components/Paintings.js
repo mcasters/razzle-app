@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
-import { Link } from 'react-router-dom';
 
 import ITEM_CONST from '../constants/itemConstant';
 import Item from '../data/model/Item';
 import ItemComponent from './item/ItemComponent';
 import { PAINTING_URL } from '../data/api/urls';
-import useQuery from './hooks/useQuery';
 import useStorePaintingQuery from './hooks/useStorePaintingQuery';
-import s from './paintings.css';
+import ItemTab from './ItemTab';
 
 const paintingQueries = [
     '?part=0&year=2017',
@@ -18,29 +16,13 @@ const paintingQueries = [
     '?part=0&year=2019',
 ];
 
-const Paintings = ({ list, location }) => {
-    let query = useQuery();
-    useStorePaintingQuery(location?.search);
+const Paintings = ({ list, query }) => {
+    useStorePaintingQuery(query);
 
     return (
         <>
-            <ul>
-                {paintingQueries.map((q) => {
-                    const url = `/peintures${q}`;
-                    const isSelected = location?.search === q;
-                    return (
-                        <li
-                            key={q}
-                            className={`${s.tab} ${
-                                isSelected ? s.selected : ''
-                            }`}
-                        >
-                            <Link to={url}>{query.get('year')}</Link>
-                        </li>
-                    );
-                })}
-            </ul>
-            <h1>{query.get('year')}</h1>
+            <ItemTab selectedQuery={query} />
+            <h1>{query.split('=')[2]}</h1>
             {list.map((row) => {
                 const item = new Item(row, ITEM_CONST.PAINTING.KEY);
                 return <ItemComponent key={row.id} item={item} />;
@@ -66,7 +48,7 @@ Paintings.getInitialProps = async ({ req, location }) => {
     try {
         const res = await fetch(`${PAINTING_URL}${apiQuery}`);
         const list = await res.json();
-        return { list, location };
+        return { list, query: apiQuery };
     } catch (error) {
         if (error.response.status === 404) return { statusCode: 404 };
         return { error };
@@ -75,7 +57,7 @@ Paintings.getInitialProps = async ({ req, location }) => {
 
 Paintings.propTypes = {
     list: PropTypes.array,
-    location: PropTypes.object,
+    query: PropTypes.string,
 };
 
 export default Paintings;
