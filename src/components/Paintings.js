@@ -8,19 +8,12 @@ import Item from '../data/model/Item';
 import ItemComponent from './item/ItemComponent';
 import { PAINTING_URL } from '../data/api/urls';
 import useQuery from './hooks/useQuery';
-import useSelectedTab from './hooks/useSelectedTab';
+import usePaintingQuery from './hooks/usePaintingQuery';
 import s from './paintings.css';
-
-const paintingIndexTab = [
-    '?part=0&year=2017',
-    '?part=1&year=2018',
-    '?part=2&year=2018',
-    '?part=0&year=2019',
-];
 
 const Paintings = ({ list, location }) => {
     let query = useQuery();
-    let tab = useSelectedTab(paintingIndexTab.indexOf(location.search));
+    let tab = usePaintingQuery(location?.search);
 
     return (
         <>
@@ -47,8 +40,20 @@ const Paintings = ({ list, location }) => {
     );
 };
 
-Paintings.getInitialProps = async ({ location }) => {
-    const apiQuery = location.search || '?part=0&year=2017';
+Paintings.getInitialProps = async ({ req, location }) => {
+    const defaultApiQuery = '?part=0&year=2017';
+
+    let apiQuery;
+    if (typeof window !== 'undefined') {
+        if (location.search === '') {
+            const storedApiQuery = localStorage.getItem('paintingQuery');
+            apiQuery = storedApiQuery !== '' ? storedApiQuery : defaultApiQuery;
+        } else apiQuery = location.search;
+    } else {
+        apiQuery = req.url.split('/peintures')[1];
+        if (apiQuery === '') apiQuery = defaultApiQuery;
+    }
+
     try {
         const res = await fetch(`${PAINTING_URL}${apiQuery}`);
         const list = await res.json();
@@ -60,7 +65,7 @@ Paintings.getInitialProps = async ({ location }) => {
 };
 
 Paintings.propTypes = {
-    list: PropTypes.object,
+    list: PropTypes.array,
     location: PropTypes.object,
 };
 

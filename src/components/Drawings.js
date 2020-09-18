@@ -19,6 +19,7 @@ const Drawings = ({ list }) => {
 };
 
 Drawings.getInitialProps = async () => {
+    console.log('coucou');
     try {
         const res = await fetch(DRAWING_URL);
         const list = await res.json();
