@@ -1,0 +1,23 @@
+.noWrap {
+    display: block;
+}
+
+.spacer {
+    display: none;
+}
+
+.email {
+    display: none;
+}
+
+@media (--sm) {
+    .noWrap {
+        display: inline;
+        white-space: pre;
+    }
+
+    .spacer {
+        display: inline;
+        padding: 0 15px;
+    }
+}
