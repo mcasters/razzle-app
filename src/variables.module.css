@@ -19,16 +19,15 @@
 
   --max-content-width: 1000px;
   --max-content-form: 25em;
-  --aside-width-md: 28%;
-  --aside-width: 20%;
+  --nav-height: 40px;
 
   /*
    * Padding
    * ======================================================================== */
 
-  --side-padding: 4em;
+  --side-padding: 1.6em;
   --main-top-padding-mobile: 3em;
-  --main-top-padding: 12em;
+  --main-top-padding: 5em;
   --main-bottom-padding: 6em;
   --main-side-padding-mobile: 1em;
   --main-side-padding: 5em;
