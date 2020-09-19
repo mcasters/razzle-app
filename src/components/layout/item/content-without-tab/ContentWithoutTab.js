@@ -5,22 +5,25 @@ import ZoomContent from '../../../zoom-content/ZoomContent';
 import useImageToZoom from '../../../hooks/useImageToZoom';
 import Item from '../../../../data/model/Item';
 import ItemComponent from '../../../item/ItemComponent';
+import s from './ContentWithoutTab.module.css';
 
 const ContentWithoutTab = ({ list, itemKey }) => {
     const [item, index, handleImageChange] = useImageToZoom();
 
     return (
         <>
-            {list.map((row) => {
-                const item = new Item(row, itemKey);
-                return (
-                    <ItemComponent
-                        key={row.id}
-                        item={item}
-                        handleImageChange={handleImageChange}
-                    />
-                );
-            })}
+            <div className={s.itemsContainer}>
+                {list.map((row) => {
+                    const item = new Item(row, itemKey);
+                    return (
+                        <ItemComponent
+                            key={row.id}
+                            item={item}
+                            handleImageChange={handleImageChange}
+                        />
+                    );
+                })}
+            </div>
             <ZoomContent selectedItem={item} imageIndex={index} />
         </>
     );

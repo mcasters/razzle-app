@@ -3,17 +3,14 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 import ITEM_CONST from '../constants/itemConstant';
-import Item from '../data/model/Item';
-import ItemComponent from './item/ItemComponent';
 import { SCULPTURE_URL } from '../data/api/urls';
+import ContentWithoutTab from './layout/item/content-without-tab/ContentWithoutTab';
 
 const Sculptures = ({ list }) => {
     return (
         <>
-            {list.map((row) => {
-                const item = new Item(row, ITEM_CONST.SCULPTURE.KEY);
-                return <ItemComponent key={row.id} item={item} />;
-            })}
+            <h1 className="hidden">{ITEM_CONST.SCULPTURE.TITLE}</h1>
+            <ContentWithoutTab list={list} itemKey={ITEM_CONST.SCULPTURE.KEY} />
         </>
     );
 };

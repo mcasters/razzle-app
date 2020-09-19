@@ -5,7 +5,7 @@ import s from './ZoomContent.module.css';
 
 function ZoomContent({ children, selectedItem, imageIndex }) {
     return (
-        <div className={s.container}>
+        <div className={s.zoomContainer}>
             {children}
             {selectedItem !== null && (
                 <img
