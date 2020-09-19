@@ -4,22 +4,15 @@ import PropTypes from 'prop-types';
 import Tab from './Tab';
 import TabContent from './TabContent';
 import ZoomContent from '../zoom-content/ZoomContent';
+import useImageToZoom from '../hooks/useImageToZoom';
 
 const TabComponent = ({ list, query }) => {
-    const [src, setSrc] = useState('');
-    const [alt, setAlt] = useState('');
-
-    const handleImageChange = (src, alt) => {
-        setSrc(src);
-        setAlt(alt);
-    };
-
-    const onImageChange = (element) => {
-        if (element !== null) {
-            element.src = src;
-            element.alt = alt;
-        }
-    };
+    // const [selectedImage, setSelectedImage] = useState(null);
+    //
+    // const handleImageChange = (image) => {
+    //     setSelectedImage(image);
+    // };
+    const [selectedImage, handleImageChange] = useImageToZoom();
 
     return (
         <>
@@ -28,7 +21,7 @@ const TabComponent = ({ list, query }) => {
                 query={query}
                 handleImageChange={handleImageChange}
             />
-            <ZoomContent onImageChange={onImageChange}>
+            <ZoomContent selectedImage={selectedImage}>
                 <Tab selectedQuery={query} />
             </ZoomContent>
         </>

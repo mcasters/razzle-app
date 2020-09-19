@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 function useImageToZoom() {
-    const [imageToZoom, setImageToZoom] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
 
-    const setSrc = (src) => {
-        setImageToZoom(src);
+    const handleImageChange = (image) => {
+        setSelectedImage(image);
     };
 
-    return { imageToZoom, setSrc: setSrc };
+    return [selectedImage, handleImageChange];
 }
 
 export default useImageToZoom;

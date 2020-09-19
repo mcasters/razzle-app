@@ -3,18 +3,24 @@ import PropTypes from 'prop-types';
 
 import s from './ZoomContent.module.css';
 
-function ZoomContent({ children, onImageChange }) {
+function ZoomContent({ children, selectedImage }) {
     return (
         <div className={s.container}>
             {children}
-            <img ref={onImageChange} className={s.image} src="" alt="" />
+            {selectedImage !== null && (
+                <img
+                    className={s.image}
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                />
+            )}
         </div>
     );
 }
 
 ZoomContent.propTypes = {
     children: PropTypes.node,
-    onImageChange: PropTypes.func.isRequired,
+    selectedImage: PropTypes.object,
 };
 
 export default ZoomContent;
