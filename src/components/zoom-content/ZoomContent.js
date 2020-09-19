@@ -7,13 +7,14 @@ function ZoomContent({ children, onImageChange }) {
     return (
         <div className={s.container}>
             {children}
-            <img ref={onImageChange} src="" className={s.image} />
+            <img ref={onImageChange} className={s.image} src="" alt="" />
         </div>
     );
 }
 
 ZoomContent.propTypes = {
     children: PropTypes.node,
+    onImageChange: PropTypes.func.isRequired,
 };
 
 export default ZoomContent;

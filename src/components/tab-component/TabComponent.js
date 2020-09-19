@@ -7,12 +7,18 @@ import ZoomContent from '../zoom-content/ZoomContent';
 
 const TabComponent = ({ list, query }) => {
     const [src, setSrc] = useState('');
-    const handleImageChange = (src) => {
+    const [alt, setAlt] = useState('');
+
+    const handleImageChange = (src, alt) => {
         setSrc(src);
+        setAlt(alt);
     };
 
     const onImageChange = (element) => {
-        if (element !== null) element.src = src;
+        if (element !== null) {
+            element.src = src;
+            element.alt = alt;
+        }
     };
 
     return (

@@ -28,6 +28,7 @@ const TabContent = ({ list, query, handleImageChange }) => {
 TabContent.propTypes = {
     list: PropTypes.array,
     query: PropTypes.string,
+    handleImageChange: PropTypes.func.isRequired,
 };
 
 export default TabContent;

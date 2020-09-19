@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Images = ({ srcList, alt, handleImageChange }) => {
-    const imageChange = (src) => (e) => {
-        handleImageChange(src);
+    const imageChange = (src) => () => {
+        handleImageChange(src, alt);
     };
 
     return srcList.map((src) => (
@@ -16,6 +16,7 @@ const Images = ({ srcList, alt, handleImageChange }) => {
 Images.prototype = {
     srcList: PropTypes.array,
     alt: PropTypes.string,
+    handleImageChange: PropTypes.func.isRequired,
 };
 
 export default Images;

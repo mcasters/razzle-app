@@ -38,5 +38,6 @@ const ItemComponent = ({ item, handleImageChange }) => {
 
 ItemComponent.propTypes = {
     item: PropTypes.object.isRequired,
+    handleImageChange: PropTypes.func.isRequired,
 };
 export default ItemComponent;

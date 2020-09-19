@@ -4,8 +4,11 @@
     width: 70%;
     height: 100%;
     right: 0;
+    text-align: center;
 }
 
 .image {
-    width: 80%;
+    padding-top: 3em;
+    max-width: 80%;
+    max-height: 80%;
 }
