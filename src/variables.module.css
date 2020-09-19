@@ -27,7 +27,7 @@
 
   --side-padding: 1.6em;
   --main-top-padding-mobile: 3em;
-  --main-top-padding: 5em;
+  --main-top-padding: 40px;
   --main-bottom-padding: 6em;
   --main-side-padding-mobile: 1em;
   --main-side-padding: 5em;
@@ -39,8 +39,8 @@
    * Colors
    * ======================================================================== */
 
-  --color-xxlight: #fafafa;
-  --color-xlight: #f5f5f5;
+  --color-xxlight: #fdfcfc;
+  --color-xlight: #f3eeea;
   --color-light: #e7e4d7;
   --color-medium: #aaa;
   --color-dark: #776e65;

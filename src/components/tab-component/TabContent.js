@@ -5,7 +5,7 @@ import Item from '../../data/model/Item';
 import ITEM_CONST from '../../constants/itemConstant';
 import ItemComponent from '../item/ItemComponent';
 
-const TabContent = ({ list, query }) => {
+const TabContent = ({ list, query, handleImageChange }) => {
     const titleYear = query.split('=')[2];
 
     return (
@@ -13,7 +13,13 @@ const TabContent = ({ list, query }) => {
             <h1 className="hidden">{titleYear}</h1>
             {list.map((row) => {
                 const item = new Item(row, ITEM_CONST.PAINTING.KEY);
-                return <ItemComponent key={row.id} item={item} />;
+                return (
+                    <ItemComponent
+                        key={row.id}
+                        item={item}
+                        handleImageChange={handleImageChange}
+                    />
+                );
             })}
         </>
     );

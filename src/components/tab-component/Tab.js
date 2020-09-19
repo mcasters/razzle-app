@@ -7,7 +7,7 @@ import s from './Tab.module.css';
 
 const Tab = ({ selectedQuery }) => {
     return (
-        <ul className={s.tablist}>
+        <ul className={s.tabList}>
             {ITEM_CONST.PAINTING.YEARS.map((year, index) => {
                 const queryLink = ITEM_CONST.PAINTING.QUERIES[index];
                 const url = `/peintures${queryLink}`;
@@ -17,7 +17,7 @@ const Tab = ({ selectedQuery }) => {
                         key={year}
                         className={`${s.tab} ${isSelected ? s.selected : ''}`}
                     >
-                        <Link to={url} classname={s.tablink}>
+                        <Link to={url} className={s.tablink}>
                             {year}
                         </Link>
                     </li>

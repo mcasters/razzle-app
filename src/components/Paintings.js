@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import { PAINTING_URL } from '../data/api/urls';
 import useStorePaintingQuery from './hooks/useStorePaintingQuery';
-import TabComponent from './tabComponent/TabComponent';
+import TabComponent from './tab-component/TabComponent';
 
 const Paintings = ({ list, query }) => {
     useStorePaintingQuery(query);

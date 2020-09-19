@@ -7,14 +7,18 @@ import Images from './Images';
 import CustomDate from '../../data/model/CustomDate';
 import GLOBAL_CONST from '../../constants/globalConstant';
 
-const ItemComponent = ({ item }) => {
+const ItemComponent = ({ item, handleImageChange }) => {
     const date = new CustomDate(item.get('date'));
     return (
         <article className={s.itemContainer}>
             <h2 className={s.itemTitle}>
                 <cite>{item.get('title')}</cite>
             </h2>
-            <Images srcList={item.getSMPath()} alt={item.getAlt()} />
+            <Images
+                srcList={item.getSMPath()}
+                alt={item.getAlt()}
+                handleImageChange={handleImageChange}
+            />
             <figcaption>
                 <time dateTime={date.getNumberDate()} className={s.noWrap}>
                     {date.getNumberDate()}
