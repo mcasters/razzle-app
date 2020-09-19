@@ -6,6 +6,10 @@ import Images from './Images';
 import Caption from './Caption';
 
 const ItemComponent = ({ item, handleImageChange }) => {
+    const handleSelectedImage = (index) => {
+        handleImageChange(item, index);
+    };
+
     return (
         <article className={s.itemContainer}>
             <h2 className={s.itemTitle}>
@@ -14,7 +18,7 @@ const ItemComponent = ({ item, handleImageChange }) => {
             <Images
                 srcList={item.getSMPath()}
                 alt={item.getAlt()}
-                handleImageChange={handleImageChange}
+                onSelected={handleSelectedImage}
             />
             <Caption item={item} />
         </article>

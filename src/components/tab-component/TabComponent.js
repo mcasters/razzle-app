@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Tab from './Tab';
@@ -12,7 +12,7 @@ const TabComponent = ({ list, query }) => {
     // const handleImageChange = (image) => {
     //     setSelectedImage(image);
     // };
-    const [selectedImage, handleImageChange] = useImageToZoom();
+    const [item, index, handleImageChange] = useImageToZoom();
 
     return (
         <>
@@ -21,7 +21,7 @@ const TabComponent = ({ list, query }) => {
                 query={query}
                 handleImageChange={handleImageChange}
             />
-            <ZoomContent selectedImage={selectedImage}>
+            <ZoomContent selectedItem={item} imageIndex={index}>
                 <Tab selectedQuery={query} />
             </ZoomContent>
         </>

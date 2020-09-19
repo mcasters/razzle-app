@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import s from './ZoomContent.module.css';
 
-function ZoomContent({ children, selectedImage }) {
+function ZoomContent({ children, selectedItem, imageIndex }) {
     return (
         <div className={s.container}>
             {children}
-            {selectedImage !== null && (
+            {selectedItem !== null && (
                 <img
                     className={s.image}
-                    src={selectedImage.src}
-                    alt={selectedImage.alt}
+                    src={selectedItem.getPath()[imageIndex]}
+                    alt={selectedItem.getAlt()}
                 />
             )}
         </div>
@@ -20,7 +20,8 @@ function ZoomContent({ children, selectedImage }) {
 
 ZoomContent.propTypes = {
     children: PropTypes.node,
-    selectedImage: PropTypes.object,
+    selectedItem: PropTypes.object,
+    imageIndex: PropTypes.number,
 };
 
 export default ZoomContent;

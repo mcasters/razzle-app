@@ -3,22 +3,26 @@ import PropTypes from 'prop-types';
 
 import s from './Images.module.css';
 
-const Images = ({ srcList, alt, handleImageChange }) => {
-    const imageChange = (src) => () => {
-        handleImageChange({ src, alt });
+const Images = ({ srcList, alt, onSelected }) => {
+    const imageChange = (index) => () => {
+        onSelected(index);
     };
 
-    return srcList.map((src) => (
-        <button key={src} onClick={imageChange(src)} className={s.imageButton}>
+    return srcList.map((src, index) => (
+        <button
+            key={src}
+            onClick={imageChange(index)}
+            className={s.imageButton}
+        >
             <img src={src} alt={alt} />)
         </button>
     ));
 };
 
 Images.prototype = {
-    srcList: PropTypes.array,
-    alt: PropTypes.string,
-    handleImageChange: PropTypes.func.isRequired,
+    srcList: PropTypes.array.isRequired,
+    alt: PropTypes.string.isRequired,
+    onSelected: PropTypes.func.isRequired,
 };
 
 export default Images;
