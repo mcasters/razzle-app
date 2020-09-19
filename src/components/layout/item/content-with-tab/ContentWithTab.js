@@ -3,15 +3,10 @@ import PropTypes from 'prop-types';
 
 import Tab from './Tab';
 import TabContent from './TabContent';
-import ZoomContent from '../zoom-content/ZoomContent';
-import useImageToZoom from '../hooks/useImageToZoom';
+import ZoomContent from '../../../zoom-content/ZoomContent';
+import useImageToZoom from '../../../hooks/useImageToZoom';
 
-const TabComponent = ({ list, query }) => {
-    // const [selectedImage, setSelectedImage] = useState(null);
-    //
-    // const handleImageChange = (image) => {
-    //     setSelectedImage(image);
-    // };
+const ContentWithTab = ({ list, query }) => {
     const [item, index, handleImageChange] = useImageToZoom();
 
     return (
@@ -28,9 +23,9 @@ const TabComponent = ({ list, query }) => {
     );
 };
 
-TabComponent.propTypes = {
+ContentWithTab.propTypes = {
     list: PropTypes.array,
     query: PropTypes.string,
 };
 
-export default TabComponent;
+export default ContentWithTab;

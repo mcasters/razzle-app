@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import { PAINTING_URL } from '../data/api/urls';
 import useStorePaintingQuery from './hooks/useStorePaintingQuery';
-import TabComponent from './tab-component/TabComponent';
+import ContentWithTab from './layout/item/content-with-tab/ContentWithTab';
 
 const Paintings = ({ list, query }) => {
     useStorePaintingQuery(query);
 
-    return <TabComponent list={list} query={query} />;
+    return <ContentWithTab list={list} query={query} />;
 };
 
 Paintings.getInitialProps = async ({ req, location }) => {

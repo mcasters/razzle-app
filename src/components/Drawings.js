@@ -3,23 +3,19 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 
 import ITEM_CONST from '../constants/itemConstant';
-import Item from '../data/model/Item';
-import ItemComponent from './item/ItemComponent';
 import { DRAWING_URL } from '../data/api/urls';
+import ContentWithoutTab from './layout/item/content-without-tab/ContentWithoutTab';
 
 const Drawings = ({ list }) => {
     return (
         <>
-            {list.map((row) => {
-                const item = new Item(row, ITEM_CONST.DRAWING.KEY);
-                return <ItemComponent key={row.id} item={item} />;
-            })}
+            <h1 className="hidden">{ITEM_CONST.DRAWING.TITLE}</h1>
+            <ContentWithoutTab list={list} itemKey={ITEM_CONST.DRAWING.KEY} />
         </>
     );
 };
 
 Drawings.getInitialProps = async () => {
-    console.log('coucou');
     try {
         const res = await fetch(DRAWING_URL);
         const list = await res.json();

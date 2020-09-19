@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Item from '../../data/model/Item';
-import ITEM_CONST from '../../constants/itemConstant';
-import ItemComponent from '../item/ItemComponent';
+import Item from '../../../../data/model/Item';
+import ITEM_CONST from '../../../../constants/itemConstant';
+import ItemComponent from '../../../item/ItemComponent';
 
 const TabContent = ({ list, query, handleImageChange }) => {
     const titleYear = query.split('=')[2];

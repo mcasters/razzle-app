@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import ITEM_CONST from '../../constants/itemConstant';
+import ITEM_CONST from '../../../../constants/itemConstant';
 import s from './Tab.module.css';
 
 const Tab = ({ selectedQuery }) => {
