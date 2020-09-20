@@ -10,7 +10,7 @@ import CONTENT from '../constants/content';
 const About = ({ content }) => {
     return (
         <article>
-            <h1>{TITLE.PRESENTATION}</h1>
+            <h1 className="hidden">{TITLE.PRESENTATION}</h1>
             <img
                 src={`${CONST.CONTENT_IMAGE_PATH}/${CONST.PRESENTATION_IMAGE_TITLE}.jpg`}
                 alt={CONST.PRESENTATION_IMAGE_ALT}
