@@ -20,7 +20,7 @@ function Layout({ children, title = 'This is the default title' }) {
             <header className={s.header}>
                 <Nav />
             </header>
-            <div className={s.content}>{children}</div>
+            <main className={s.content}>{children}</main>
 
             <footer>{'I`m here to stay'}</footer>
         </ErrorBoundary>

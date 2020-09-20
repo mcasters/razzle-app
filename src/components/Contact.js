@@ -5,11 +5,12 @@ import fetch from 'isomorphic-unfetch';
 import { CONTENT_URL } from '../data/api/urls';
 import { TITLE } from '../constants/meta';
 import CONTENT from '../constants/content';
+import s from './Contact.module.css';
 
 const Contact = ({ address, phone, email }) => {
     return (
-        <article>
-            <h1>{TITLE.CONTACT}</h1>
+        <article className={s.content}>
+            <h1 className="hidden">{TITLE.CONTACT}</h1>
             <div>{address}</div>
             <div>{phone}</div>
             <div>{email}</div>
