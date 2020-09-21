@@ -6,14 +6,16 @@ import { CONTENT_URL } from '../data/api/urls';
 import CONST from '../constants/content';
 import { TITLE } from '../constants/meta';
 import CONTENT from '../constants/content';
+import s from './About.module.css';
 
 const About = ({ content }) => {
     return (
-        <article>
+        <article className={s.container}>
             <h1 className="hidden">{TITLE.PRESENTATION}</h1>
             <img
                 src={`${CONST.CONTENT_IMAGE_PATH}/${CONST.PRESENTATION_IMAGE_TITLE}.jpg`}
                 alt={CONST.PRESENTATION_IMAGE_ALT}
+                className={s.picture}
             />
             <div>{content}</div>
         </article>
