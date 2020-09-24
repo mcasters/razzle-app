@@ -3,6 +3,7 @@ import { asyncComponent } from '@jaredpalmer/after';
 
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Privacy from './pages/Privacy';
 
 export default [
     // normal route
@@ -51,6 +52,11 @@ export default [
             loader: () => import('./pages/Contact'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
+    },
+    {
+        path: '/Politique-de-confidentialite',
+        exact: true,
+        component: Privacy,
     },
     {
         component: NotFound,
