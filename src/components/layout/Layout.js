@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ErrorBoundary from '../ErrorBoundary';
 import s from './Layout.module.css';
 import Nav from './navigation/Nav';
+import Footer from './footer/Footer';
 
 function Layout({ children, title = 'This is the default title' }) {
     return (
@@ -21,8 +22,7 @@ function Layout({ children, title = 'This is the default title' }) {
                 <Nav />
             </header>
             <main className={s.content}>{children}</main>
-
-            <footer>{'I`m here to stay'}</footer>
+            <Footer />
         </ErrorBoundary>
     );
 }
