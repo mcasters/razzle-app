@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import s from './Caption.module.css';
-import GLOBAL_CONST from '../../constants/globalConstant';
-import CustomDate from '../../data/model/CustomDate';
+import GLOBAL_CONST from '../../../constants/globalConstant';
+import CustomDate from '../../../data/model/CustomDate';
 
 const Caption = ({ item }) => {
     const date = new CustomDate(item.get('date'));

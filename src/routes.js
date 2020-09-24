@@ -1,8 +1,8 @@
 import React from 'react';
 import { asyncComponent } from '@jaredpalmer/after';
 
-import Home from './components/Home';
-import NotFound from './components/NotFound';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
 export default [
     // normal route
@@ -16,7 +16,7 @@ export default [
         path: '/peintures',
         exact: true,
         component: asyncComponent({
-            loader: () => import('./components/Paintings'), // required
+            loader: () => import('./pages/Paintings'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
     },
@@ -24,7 +24,7 @@ export default [
         path: '/sculptures',
         exact: true,
         component: asyncComponent({
-            loader: () => import('./components/Sculptures'), // required
+            loader: () => import('./pages/Sculptures'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
     },
@@ -32,7 +32,7 @@ export default [
         path: '/dessins',
         exact: true,
         component: asyncComponent({
-            loader: () => import('./components/Drawings'), // required
+            loader: () => import('./pages/Drawings'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
     },
@@ -40,7 +40,7 @@ export default [
         path: '/presentation',
         exact: true,
         component: asyncComponent({
-            loader: () => import('./components/About'), // required
+            loader: () => import('./pages/About'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
     },
@@ -48,7 +48,7 @@ export default [
         path: '/contact',
         exact: true,
         component: asyncComponent({
-            loader: () => import('./components/Contact'), // required
+            loader: () => import('./pages/Contact'), // required
             Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
         }),
     },

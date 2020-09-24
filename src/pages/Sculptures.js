@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 
 import ITEM_CONST from '../constants/itemConstant';
 import { SCULPTURE_URL } from '../data/api/urls';
-import ContentWithoutTab from './layout/item/content-without-tab/ContentWithoutTab';
+import ContentWithoutTab from '../components/layout/item/content-without-tab/ContentWithoutTab';
 
 const Sculptures = ({ list }) => {
     return (

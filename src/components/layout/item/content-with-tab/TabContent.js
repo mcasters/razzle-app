@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Item from '../../../../data/model/Item';
 import ITEM_CONST from '../../../../constants/itemConstant';
-import ItemComponent from '../../../item/ItemComponent';
+import ItemComponent from '../../../item/item-component/ItemComponent';
 
 const TabContent = ({ list, query, handleImageChange }) => {
     const titleYear = query.split('=')[2];

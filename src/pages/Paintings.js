@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import { PAINTING_URL } from '../data/api/urls';
-import useStorePaintingQuery from './hooks/useStorePaintingQuery';
-import ContentWithTab from './layout/item/content-with-tab/ContentWithTab';
+import useStorePaintingQuery from '../components/hooks/useStorePaintingQuery';
+import ContentWithTab from '../components/layout/item/content-with-tab/ContentWithTab';
 
 const Paintings = ({ list, query }) => {
     useStorePaintingQuery(query);

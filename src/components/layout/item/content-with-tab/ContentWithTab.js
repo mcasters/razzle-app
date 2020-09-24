@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Tab from './Tab';
 import TabContent from './TabContent';
-import ZoomContent from '../../../zoom-content/ZoomContent';
+import ZoomContent from '../../../item/zoom-content/ZoomContent';
 import useImageToZoom from '../../../hooks/useImageToZoom';
 
 const ContentWithTab = ({ list, query }) => {

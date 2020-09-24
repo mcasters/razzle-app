@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ZoomContent from '../../../zoom-content/ZoomContent';
+import ZoomContent from '../../../item/zoom-content/ZoomContent';
 import useImageToZoom from '../../../hooks/useImageToZoom';
 import Item from '../../../../data/model/Item';
-import ItemComponent from '../../../item/ItemComponent';
+import ItemComponent from '../../../item/item-component/ItemComponent';
 import s from './ContentWithoutTab.module.css';
 
 const ContentWithoutTab = ({ list, itemKey }) => {
