@@ -6,6 +6,7 @@ import ErrorBoundary from '../ErrorBoundary';
 import s from './Layout.module.css';
 import Nav from './navigation/Nav';
 import Footer from './footer/Footer';
+import Main from './Main/Main';
 
 function Layout({ children, title = 'This is the default title' }) {
     return (
@@ -21,7 +22,7 @@ function Layout({ children, title = 'This is the default title' }) {
             <header className={s.header}>
                 <Nav />
             </header>
-            <main className={s.content}>{children}</main>
+            <Main>{children}</Main>
             <Footer />
         </ErrorBoundary>
     );
